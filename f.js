@@ -7,14 +7,14 @@ nutricao.textContent = "JP Nutrição";
 //acessar a tag tr -menos o  paciente Paulo
 var pacientes = document.querySelectorAll(".paciente");
 for(var i = 0;i < pacientes.length; i++){
-var paciente = pacientes[i];
-
+    paciente = pacientes[i];
 // Seleciona o conteúdo do peso da tag
 var tdPeso = paciente.querySelector(".info-peso");
 var peso = tdPeso.textContent;
 
 //Seleciona o conteúdo altura da tag
 var tdAltura = paciente.querySelector(".info-altura");
+
 var altura = tdAltura.textContent;
 
 //calcula o imc
@@ -32,10 +32,20 @@ tdImc.textContent = imc;
 if(peso <= 0 || peso >= 1000){
 var pesoValido = false;
 tdImc.textContent = "peso invalido";
+paciente.classList.add('campo-invalido');
 }
 if(altura < 0 || altura > 3.00){
+   
    var alturaValida =false ;
    tdImc.textContent = "altura invalida";
-}
+   paciente.classList.add('campo-invalido');
 }
 
+}
+
+//quando clicar no titulo, apareça uma mensagem
+nutricao.addEventListener('click',mostraMensagem);
+
+function mostraMensagem (){
+    alert("Este elento foi clicado");
+}
