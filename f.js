@@ -49,3 +49,37 @@ nutricao.addEventListener('click',mostraMensagem);
 function mostraMensagem (){
     alert("Este elento foi clicado");
 }
+
+
+//acessa o botão
+var  botaoAdicionar = document.querySelector("#adicionar paciente");
+//execulta os codigos ao clicar no botão 
+botaoAdicionar.addEventListener ('click'),function(event){
+
+
+//acessa o formúlario 
+var formúlario = document.querySelector("#form-adiciona");
+console.log(formulario);
+
+//captura os valores digitados 
+var nome = formulario.nome.value;
+var peso = formulario.peso.value;
+var altura = formulario.altura.value;
+var gordura = formúlario.gordura.value;
+
+var pacienteTR = document.createElement("tr");
+
+//cria as tags <td>
+var nomeTd = document.createElemente("td");
+var pesoTd = document.createElement("td");
+var alturaTd = document.createElemente("td");
+var gorduraTd = document.createElemente("td");
+var imcTd = document.createElemente("td");
+
+nomeTd.textContent = nome;
+pesoTd.textContent = peso;
+alturaTd.textContent = altura;
+gorduraTd.textContent = gordura;
+imcTd.textContent = imc;
+
+};
