@@ -52,20 +52,20 @@ function mostraMensagem (){
 
 
 //acessa o botão
-var  botaoAdicionar = document.querySelector("#adicionar paciente");
+var  botaoAdicionar = document.querySelector("#adicionar-paciente");
 //execulta os codigos ao clicar no botão 
-botaoAdicionar.addEventListener ('click'),function(event){
+botaoAdicionar.addEventListener ('click',function(event){
 
 
 //acessa o formúlario 
-var formúlario = document.querySelector("#form-adiciona");
+var formulario = document.querySelector("#form-adiciona");
 console.log(formulario);
 
 //captura os valores digitados 
 var nome = formulario.nome.value;
 var peso = formulario.peso.value;
 var altura = formulario.altura.value;
-var gordura = formúlario.gordura.value;
+var gordura = formulario.gordura.value;
 
 var pacienteTR = document.createElement("tr");
 
@@ -82,4 +82,17 @@ alturaTd.textContent = altura;
 gorduraTd.textContent = gordura;
 imcTd.textContent = imc;
 
-};
+
+//adicionar as tags na tela de usuario
+pacienteTr.appendchild(nomeTd);
+pacienteTr.appendchild(pesoTd);
+pacienteTr.appendchild(alturaTd);
+pacienteTr.appendchild(gorduraTd);
+pacienteTr.appendchild(imcTd);
+
+//variavel para acessar tdBody e criar a tabela
+var tabela = document.querySelector("#tabela-pacientes");
+tabela.appendChild(pacienteTr);
+
+
+});
