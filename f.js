@@ -18,8 +18,7 @@ var tdAltura = paciente.querySelector(".info-altura");
 var altura = tdAltura.textContent;
 
 //calcula o imc
-var imc = peso/ (altura*altura);
-imc = imc.toFixed(2);
+var imc = calcularIMC(peso,altura);
 //variaveis com valor true
 var pesoValido = true ;
 var alturaValida = true; 
@@ -27,7 +26,7 @@ var alturaValida = true;
 if(pesoValido && alturaValida){
     // acessa e altera o imc
 var tdImc = paciente.querySelector(".info-imc");
-tdImc.textContent = imc;
+ tdImc.textContent = calcularIMC(peso,altura);
 }
 if(peso <= 0 || peso >= 1000){
 var pesoValido = false;
@@ -51,48 +50,13 @@ function mostraMensagem (){
 }
 
 
-//acessa o botão
-var  botaoAdicionar = document.querySelector("#adicionar-paciente");
-//execulta os codigos ao clicar no botão 
-botaoAdicionar.addEventListener ('click',function(event){
+function calcularIMC(peso,altura){
+var imc = 0
+
+   imc = peso/(altura*altura);
+
+    return imc.toFixed(2);
+
+}
 
 
-//acessa o formúlario 
-var formulario = document.querySelector("#form-adiciona");
-console.log(formulario);
-
-//captura os valores digitados 
-var nome = formulario.nome.value;
-var peso = formulario.peso.value;
-var altura = formulario.altura.value;
-var gordura = formulario.gordura.value;
-
-var pacienteTR = document.createElement("tr");
-
-//cria as tags <td>
-var nomeTd = document.createElemente("td");
-var pesoTd = document.createElement("td");
-var alturaTd = document.createElemente("td");
-var gorduraTd = document.createElemente("td");
-var imcTd = document.createElemente("td");
-
-nomeTd.textContent = nome;
-pesoTd.textContent = peso;
-alturaTd.textContent = altura;
-gorduraTd.textContent = gordura;
-imcTd.textContent = imc;
-
-
-//adicionar as tags na tela de usuario
-pacienteTr.appendchild(nomeTd);
-pacienteTr.appendchild(pesoTd);
-pacienteTr.appendchild(alturaTd);
-pacienteTr.appendchild(gorduraTd);
-pacienteTr.appendchild(imcTd);
-
-//variavel para acessar tdBody e criar a tabela
-var tabela = document.querySelector("#tabela-pacientes");
-tabela.appendChild(pacienteTr);
-
-
-});
